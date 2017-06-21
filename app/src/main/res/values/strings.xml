@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">testBottomNavigation</string>
+    <string name="title_home">首頁</string>
+    <string name="title_reward">紅利</string>
+    <string name="title_store">好康</string>
+    <string name="title_signin">登錄</string>
+    <string name="title_my">我的</string>
+</resources>
