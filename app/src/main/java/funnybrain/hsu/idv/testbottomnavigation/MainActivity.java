@@ -46,14 +46,13 @@ public class MainActivity extends BaseActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-//        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomBar);
         BottomNavigationViewHelper.removeShiftMode(navigation);
         navigation.getMenu().getItem(0).setChecked(true);
     }
 
     @Override
     public void setActionBar() {
-
+        setActivityTitle("國泰優惠");
     }
 
     @Override
