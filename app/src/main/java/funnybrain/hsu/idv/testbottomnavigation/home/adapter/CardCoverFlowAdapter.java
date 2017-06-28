@@ -28,7 +28,7 @@ public class CardCoverFlowAdapter extends FancyCoverFlowAdapter {
     @Override
     public View getCoverFlowItem(int position, View view, ViewGroup parent) {
         CardViewHolder holder;
-        if (view == null) {
+        if (view != null) {
             holder = (CardViewHolder) view.getTag();
         } else {
             view = LayoutInflater.from(mContext).inflate(R.layout.view_card_home, parent, false);

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -57,9 +58,7 @@ public class MainActivity extends BaseActivity {
 
         mFragmentManager = getSupportFragmentManager();
 
-        BottomNavigationViewHelper.removeShiftMode(mNavigation);
         mNavigation.getMenu().getItem(0).setChecked(true);
-        mNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     @Override
@@ -68,7 +67,14 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public void findView() {
+    public void setNavigation() {
+        setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        setDefaultSelectedNavigationItem(0);
+        setNavigationVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void setCardCoverFlow() {
 
     }
 
