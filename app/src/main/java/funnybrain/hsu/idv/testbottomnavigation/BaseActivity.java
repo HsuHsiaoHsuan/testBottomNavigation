@@ -141,13 +141,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     // FancyCoverFlow >>>>>>>>>>>>>>>>
     public void initCardCoverFlow() {
         mCardCoverFlow = (FancyCoverFlow) findViewById(R.id.fcf_card);
-        ViewGroup.LayoutParams fcfParams = mCardCoverFlow.getLayoutParams();
-        fcfParams.height = Utils.getPx(this, 100);
-        mCardCoverFlow.setLayoutParams(fcfParams);
         mCardCoverFlow.setUnselectedAlpha(1f);
         mCardCoverFlow.setUnselectedSaturation(1f);
         mCardCoverFlow.setUnselectedScale(1f);
-        mCardCoverFlow.setSpacing(30);
+        mCardCoverFlow.setSpacing(Utils.getDp2Px(this,40));
         mCardCoverFlow.setMaxRotation(0);
         mCardCoverFlow.setScaleDownGravity(1f);
         mCardCoverFlow.setActionDistance(FancyCoverFlow.ACTION_DISTANCE_AUTO);
@@ -158,10 +155,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         mCardCoverFlow.setAdapter(adapter);
     }
 
-    public void setCardCoverFlowHeight(int height) {
-        ViewGroup.LayoutParams fcfParams = mCardCoverFlow.getLayoutParams();
-        fcfParams.height = Utils.getPx(this, height);
-        mCardCoverFlow.setLayoutParams(fcfParams);
+    public void setCardCoverFlowParams(ViewGroup.LayoutParams params) {
+        mCardCoverFlow.setLayoutParams(params);
     }
 
     public void setCardCoverFlowItemSelectedListener(AdapterView.OnItemSelectedListener listener) {
@@ -174,6 +169,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void setCardCoverFlowVisibility(int visibility) {
         mCardCoverFlow.setVisibility(visibility);
+    }
+
+    public ViewGroup.LayoutParams getCardCoverFlowParams() {
+        return mCardCoverFlow.getLayoutParams();
     }
 
     // <<<<<<<<<<<<<<<< FancyCoverFlow

@@ -25,7 +25,6 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <ImageView
-                android:id="@+id/iv_theme"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
@@ -55,7 +54,7 @@
             <funnybrain.hsu.idv.testbottomnavigation.widget.fancycoverflow.FancyCoverFlow
                 android:id="@+id/fcf_card"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="160dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="?attr/actionBarSize"
                 android:background="@null"

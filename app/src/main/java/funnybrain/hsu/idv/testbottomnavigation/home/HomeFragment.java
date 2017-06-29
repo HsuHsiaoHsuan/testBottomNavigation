@@ -4,28 +4,23 @@ package funnybrain.hsu.idv.testbottomnavigation.home;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import funnybrain.hsu.idv.testbottomnavigation.BaseActivity;
 import funnybrain.hsu.idv.testbottomnavigation.R;
 import funnybrain.hsu.idv.testbottomnavigation.Utils;
 import funnybrain.hsu.idv.testbottomnavigation.data.Card;
+import funnybrain.hsu.idv.testbottomnavigation.data.CardCode;
 import funnybrain.hsu.idv.testbottomnavigation.home.adapter.CardCoverFlowAdapter;
-import funnybrain.hsu.idv.testbottomnavigation.widget.fancycoverflow.FancyCoverFlow;
 
 public class HomeFragment extends Fragment {
-
-//    @BindView(R.id.fcf_card) FancyCoverFlow mCardCoverFlow;
 
     private CardCoverFlowAdapter mCoverFlowAdapter;
     private List<Card> data = new ArrayList<>();
@@ -42,9 +37,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        for (int x=0; x<5; x++) {
-            data.add(new Card("TYPE " + x, String.valueOf(x), "HAVE_CARD", "CARD_LINK", "CARD_CODE"));
-        }
+        data.add(new Card("1", "91820291", "1", "http://www.google.com.tw", CardCode.BP));
+        data.add(new Card("1", "12343", "1", "http://www.google.com.tw", CardCode.CO));
+        data.add(new Card("1", "983245", "0", "http://www.google.com.tw", CardCode.AM));
+        data.add(new Card("1", "91820291", "1", "http://www.google.com.tw", CardCode.EV));
+        data.add(new Card("1", "91820291", "1", "http://www.google.com.tw", CardCode.CL));
+        data.add(new Card("1", "91820291", "1", "http://www.google.com.tw", CardCode.CB));
+        data.add(new Card("1", "91820291", "1", "http://www.google.com.tw", CardCode.MR));
 
         mCoverFlowAdapter = new CardCoverFlowAdapter(getActivity(), data);
     }
@@ -65,7 +64,9 @@ public class HomeFragment extends Fragment {
         if (getActivity() instanceof BaseActivity) {
             BaseActivity activity = (BaseActivity) getActivity();
 
-            activity.setCardCoverFlowHeight(100);
+            ViewGroup.LayoutParams params = activity.getCardCoverFlowParams();
+            params.height = Utils.getDp2Px(getActivity(), 160);
+            activity.setCardCoverFlowParams(params);
             activity.setCardCoverFlowAdapter(mCoverFlowAdapter);
             activity.setCardCoverFlowVisibility(View.VISIBLE);
         } else {
@@ -76,7 +77,7 @@ public class HomeFragment extends Fragment {
 
 //    private void initCardCoverFlow() {
 //        ViewGroup.LayoutParams fcfParams = mCardCoverFlow.getLayoutParams();
-//        fcfParams.height = Utils.getPx(getActivity(), 100);
+//        fcfParams.height = Utils.getDp2Px(getActivity(), 100);
 //        mCardCoverFlow.setLayoutParams(fcfParams);
 //        mCardCoverFlow.setUnselectedAlpha(1f);
 //        mCardCoverFlow.setUnselectedSaturation(1f);
